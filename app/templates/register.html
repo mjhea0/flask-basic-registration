@@ -6,7 +6,8 @@
     <form method="POST" action="">
       <p>Username: {{ form.name }}&nbsp;&nbsp;Email: {{ form.email }}</p>
       <p>Password: {{ form.password }}&nbsp;&nbsp;Verify Password: {{ form.confirm }}</p>
-      <p><input type="submit" value="Register"></p>
+      <p><input class="btn btn-primary" type="submit" value="Register"></p>
     </form>
+    <br/>
     <p><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
 {% endblock %}
