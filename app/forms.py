@@ -1,5 +1,6 @@
-from flask.ext.wtf import Form, TextField, PasswordField, DateField, IntegerField, SelectField
-from flask.ext.wtf import Required, Email, EqualTo, Length
+from flask.ext.wtf import Form
+from wtforms.fields import TextField, PasswordField, DateField, IntegerField, SelectField, SubmitField, RadioField
+from wtforms.validators import Required, Email, EqualTo, Length, AnyOf
 
 class RegisterForm(Form):
     name = TextField('Username', validators=[Required(), Length(min=3, max=25)])
