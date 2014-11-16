@@ -1,5 +1,7 @@
 # Flask User Management
 
+[![Build Status](https://travis-ci.org/mjhea0/flask-basic-registration.svg?branch=master)](https://travis-ci.org/mjhea0/flask-basic-registration)
+
 Starter app for managing users - login/logout and registration.
 
 ### Set Environment Variables
