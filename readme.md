@@ -42,5 +42,4 @@ $ python manage.py cov
 1. forgot password
 1. change/update password and email
 1. more unit and integration tests
-1. travis
 1. deployment options
