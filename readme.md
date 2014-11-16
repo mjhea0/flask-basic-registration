@@ -7,7 +7,7 @@ Starter app for managing users - login/logout and registration.
 ### Set Environment Variables
 
 ```sh
-$ export APP_SETTINGS="config.DevelopmentConfig
+$ export APP_SETTINGS="config.DevelopmentConfig"
 $ export DATABASE_URL="postgresql://localhost/users"
 $ export APP_MAIL_USERNAME="blah"
 $ export APP_MAIL_PASSWORD="blah"
