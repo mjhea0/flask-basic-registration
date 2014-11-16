@@ -29,8 +29,6 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     WTF_CSRF_ENABLED = False
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-    MAIL_USERNAME = 'from@example.com'
-    MAIL_PASSWORD = 'blah'
 
 
 class TestingConfig(BaseConfig):
