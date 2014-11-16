@@ -32,7 +32,7 @@ $ python manage.py test
 With coverage:
 
 ```sh
-$ python manage.py test
+$ python manage.py cov
 ```
 
 ### Todo
