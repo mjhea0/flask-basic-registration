@@ -1,8 +1,10 @@
 language: python
 python:
-  - "2.6"
   - "2.7"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
-script: "python manage.py test"
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+script:
+  python manage.py cov
+after_success:
+  coveralls
