@@ -1,9 +1,11 @@
-# project/users/forms.py
+# project/user/forms.py
 
 
 from flask_wtf import Form
 from wtforms import TextField, PasswordField
 from wtforms.validators import DataRequired, Email, Length, EqualTo
+
+from project.models import User
 
 
 class LoginForm(Form):
@@ -22,3 +24,13 @@ class RegisterForm(Form):
         'Repeat password',
         [DataRequired(), EqualTo('password', message='Passwords must match.')]
     )
+
+    def validate(self):
+        initial_validation = super(RegisterForm, self).validate()
+        if not initial_validation:
+            return False
+        user = User.query.filter_by(email=self.email.data).first()
+        if user:
+            self.email.errors.append("Email already registered")
+            return False
+        return True

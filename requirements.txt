@@ -1,5 +1,6 @@
 Flask==0.10.1
 Flask-Bcrypt==0.6.0
+Flask-DebugToolbar==0.9.0
 Flask-Login==0.2.11
 Flask-Mail==0.9.1
 Flask-Migrate==1.2.0
@@ -25,4 +26,5 @@ paramiko==1.15.1
 psycopg2==2.5.4
 py-bcrypt==0.4
 pycrypto==2.6.1
+requests==2.4.3
 wsgiref==0.1.2

@@ -11,15 +11,16 @@ class User(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String, nullable=False)
-    password = db.Column(db.String)
+    email = db.Column(db.String, unique=True, nullable=False)
+    password = db.Column(db.String, nullable=False)
     registered_on = db.Column(db.DateTime, nullable=False)
-    email_confirmed = db.Column(db.Boolean, default=False)
+    admin = db.Column(db.Boolean, nullable=False, default=False)
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, paid=False, admin=False):
         self.email = email
         self.password = bcrypt.generate_password_hash(password)
         self.registered_on = datetime.datetime.now()
+        self.admin = admin
 
     def is_authenticated(self):
         return True

@@ -1,7 +1,8 @@
 *.pyc
-.DS_Store
 *.sqlite
+.DS_Store
 .coverage
 env
 migrations
 tmp
+config.py

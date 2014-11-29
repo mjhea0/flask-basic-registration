@@ -4,26 +4,45 @@
 
 Starter app for managing users - login/logout and registration.
 
-### Set Environment Variables
+## QuickStart
+
+#### Rename *config_sample.py* as *config.py*
+
+#### Set Environment Variables
 
 ```sh
-$ export APP_SETTINGS="config.DevelopmentConfig"
-$ export DATABASE_URL="postgresql://localhost/users"
-$ export APP_MAIL_USERNAME="blah"
-$ export APP_MAIL_PASSWORD="blah"
+$ export APP_SETTINGS="project.config.DevelopmentConfig"
 ```
 
-### Quickstart
+or
+
+```sh
+$ export APP_SETTINGS="project.config.ProductionConfig"
+```
+
+#### Update Settings in Production
+
+1. `SECRET_KEY`
+1. `SQLALCHEMY_DATABASE_URI`
+1. `STRIPE_SECRET_KEY`
+1. `STRIPE_PUBLISHABLE_KEY`
+
+#### Create DB
 
 ```sh
 $ python manage.py create_db
 $ python manage.py db init
 $ python manage.py db migrate
 $ python manage.py create_admin
+```
+
+#### Run
+
+```sh
 $ python manage.py runserver
 ```
 
-### Testing
+#### Testing
 
 Without coverage:
 
@@ -37,9 +56,9 @@ With coverage:
 $ python manage.py cov
 ```
 
-### Todo
+## Todo
 
 1. forgot password
-1. change/update password and email
-1. more unit and integration tests
-1. deployment options
+1. change/update password
+1. logging
+

@@ -1,4 +1,5 @@
-# project/users/views.py
+# project/user/views.py
+
 
 #################
 #### imports ####
@@ -11,18 +12,16 @@ from flask.ext.login import login_user, logout_user, \
 
 from project.models import User
 from project.token import ts
-from project.email import send_email
+# from project.email import send_email
 from project import db, bcrypt
 from .forms import LoginForm, RegisterForm
+
 
 ################
 #### config ####
 ################
 
-user_blueprint = Blueprint(
-    'user', __name__,
-    template_folder='templates'
-)
+user_blueprint = Blueprint('user', __name__,)
 
 
 ################
@@ -42,17 +41,12 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        # confirmation email
-        token = ts.dumps(user.email, salt='email-confirm-key')
-        confirm_url = url_for('user.confirm_email', token=token)
-        html = render_template('activate.html', confirm_url=confirm_url)
-        send_email(user.email, "Confirm your email", html)
-
-        flash('A confirmation email has been sent to you by email.')
+        login_user(user)
+        flash('You registered and are now logged in. Welcome!', 'success')
 
         return redirect(url_for('user.login'))
 
-    return render_template('register.html', form=form)
+    return render_template('user/register.html', form=form)
 
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
@@ -69,8 +63,8 @@ def login():
             return redirect(url_for('main.home'))
         else:
             flash('Invalid email and/or password.')
-            return render_template('login.html', form=form)
-    return render_template('login.html', form=form)
+            return render_template('user/login.html', form=form)
+    return render_template('user/login.html', form=form)
 
 
 @user_blueprint.route('/logout')
@@ -84,7 +78,7 @@ def logout():
 @user_blueprint.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html')
+    return render_template('user/profile.html')
 
 
 @user_blueprint.route('/confirm/<token>')
