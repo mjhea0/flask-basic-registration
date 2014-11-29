@@ -13,6 +13,7 @@ class TestPublic(BaseTestCase):
     def test_main_route_requires_login(self):
         # Ensure main route requres logged in user.
         response = self.client.get('/', follow_redirects=True)
+        self.assertTrue(response.status_code == 200)
         self.assertIn(b'Please log in to access this page', response.data)
 
     def test_logout_route_requires_login(self):
