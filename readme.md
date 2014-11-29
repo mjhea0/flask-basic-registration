@@ -51,8 +51,3 @@ With coverage:
 ```sh
 $ python manage.py cov
 ```
-
-## Todo
-
-1. logging
-
