@@ -24,8 +24,6 @@ $ export APP_SETTINGS="project.config.ProductionConfig"
 
 1. `SECRET_KEY`
 1. `SQLALCHEMY_DATABASE_URI`
-1. `STRIPE_SECRET_KEY`
-1. `STRIPE_PUBLISHABLE_KEY`
 
 #### Create DB
 
