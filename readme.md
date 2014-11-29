@@ -6,9 +6,7 @@ Starter app for managing users - login/logout and registration.
 
 ## QuickStart
 
-#### Rename *config_sample.py* as *config.py*
-
-#### Set Environment Variables
+### Set Environment Variables
 
 ```sh
 $ export APP_SETTINGS="project.config.DevelopmentConfig"
@@ -20,12 +18,12 @@ or
 $ export APP_SETTINGS="project.config.ProductionConfig"
 ```
 
-#### Update Settings in Production
+### Update Settings in Production
 
 1. `SECRET_KEY`
 1. `SQLALCHEMY_DATABASE_URI`
 
-#### Create DB
+### Create DB
 
 ```sh
 $ python manage.py create_db
@@ -34,13 +32,13 @@ $ python manage.py db migrate
 $ python manage.py create_admin
 ```
 
-#### Run
+### Run
 
 ```sh
 $ python manage.py runserver
 ```
 
-#### Testing
+### Testing
 
 Without coverage:
 
@@ -56,7 +54,5 @@ $ python manage.py cov
 
 ## Todo
 
-1. forgot password
-1. change/update password
 1. logging
 
