@@ -20,8 +20,6 @@ class DevelopmentConfig(BaseConfig):
     WTF_CSRF_ENABLED = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'dev.sqlite')
     DEBUG_TB_ENABLED = True
-    STRIPE_SECRET_KEY = 'test key'
-    STRIPE_PUBLISHABLE_KEY = 'test key'
 
 
 class TestingConfig(BaseConfig):
@@ -31,8 +29,6 @@ class TestingConfig(BaseConfig):
     BCRYPT_LOG_ROUNDS = 1
     WTF_CSRF_ENABLED = False
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
-    STRIPE_SECRET_KEY = 'test key'
-    STRIPE_PUBLISHABLE_KEY = 'test key'
 
 
 class ProductionConfig(BaseConfig):
@@ -41,5 +37,5 @@ class ProductionConfig(BaseConfig):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'
     DEBUG_TB_ENABLED = False
-    STRIPE_SECRET_KEY = 'live key'
-    STRIPE_PUBLISHABLE_KEY = 'live key'
+    STRIPE_SECRET_KEY = 'foo'
+    STRIPE_PUBLISHABLE_KEY = 'bar'

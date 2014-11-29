@@ -8,13 +8,13 @@
 from flask import render_template, Blueprint, url_for, \
     redirect, flash, request
 from flask.ext.login import login_user, logout_user, \
-    login_required, current_user
+    login_required
 
 from project.models import User
 from project.token import ts
 # from project.email import send_email
 from project import db, bcrypt
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, ChangePasswordForm
 
 
 ################
@@ -30,8 +30,6 @@ user_blueprint = Blueprint('user', __name__,)
 
 @user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated():
-        return redirect(url_for('main.home'))
     form = RegisterForm(request.form)
     if form.validate_on_submit():
         user = User(
@@ -51,8 +49,6 @@ def register():
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated():
-        return redirect(url_for('main.home'))
     form = LoginForm(request.form)
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -78,7 +74,8 @@ def logout():
 @user_blueprint.route('/profile')
 @login_required
 def profile():
-    return render_template('user/profile.html')
+    form = ChangePasswordForm(request.form)
+    return render_template('user/profile.html', form=form)
 
 
 @user_blueprint.route('/confirm/<token>')
