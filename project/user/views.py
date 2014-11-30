@@ -11,7 +11,6 @@ from flask.ext.login import login_user, logout_user, \
     login_required, current_user
 
 from project.models import User
-from project.token import ts
 # from project.email import send_email
 from project import db, bcrypt
 from .forms import LoginForm, RegisterForm, ChangePasswordForm
