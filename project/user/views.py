@@ -86,20 +86,3 @@ def profile():
             flash('Password change was unsuccessful.', 'danger')
             return redirect(url_for('user.profile'))
     return render_template('user/profile.html', form=form)
-
-
-@user_blueprint.route('/confirm/<token>')
-def confirm_email(token, max_age=86400):
-    try:
-        email = ts.loads(token, max_age, salt="email-confirm-key")
-    except:
-        flash('The confirmation link is invalid or has expired.', 'danger')
-    user = User.query.filter_by(email=email).first_or_404()
-    if user.email_confirmed:
-        flash('Account already confirmed. Please login.', 'success')
-    else:
-        user.email_confirmed = True
-        db.session.add(user)
-        db.session.commit()
-        flash('You have confirmed your account. Thanks!', 'success')
-    return redirect(url_for('user.login'))
