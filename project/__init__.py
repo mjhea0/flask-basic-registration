@@ -49,9 +49,10 @@ app.register_blueprint(user_blueprint)
 #### flask-login ####
 ####################
 
-from models import User
+from project.models import User
 
 login_manager.login_view = "user.login"
+login_manager.login_message_category = "danger"
 
 
 @login_manager.user_loader

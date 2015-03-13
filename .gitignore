@@ -5,3 +5,4 @@
 env
 migrations
 tmp
+__pycache__
