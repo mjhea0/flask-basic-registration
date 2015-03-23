@@ -6,3 +6,4 @@ env
 migrations
 tmp
 __pycache__
+env.sh
