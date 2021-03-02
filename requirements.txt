@@ -14,8 +14,8 @@ MarkupSafe==0.23
 SQLAlchemy==0.9.9
 WTForms==2.0.2
 Werkzeug==0.10.1
-alembic==0.7.4
+alembic==1.5.5
 blinker==1.3
-coverage==3.7.1
+coverage==5.4
 itsdangerous==0.24
 python-bcrypt==0.3.1
