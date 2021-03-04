@@ -3,7 +3,7 @@
 
 import unittest
 
-from flask.ext.login import current_user
+from flask_login import current_user
 
 from project.util import BaseTestCase
 
@@ -47,7 +47,7 @@ class TestLoggingInOut(BaseTestCase):
             )
             response = self.client.get('/logout', follow_redirects=True)
             self.assertIn(b'You were logged out.', response.data)
-            self.assertFalse(current_user.is_active())
+            self.assertFalse(current_user.is_active)
 
 
 if __name__ == '__main__':
