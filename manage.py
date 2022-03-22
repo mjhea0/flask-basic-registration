@@ -69,5 +69,5 @@ def create_admin():
     db.session.commit()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     manager.run()
