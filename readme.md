@@ -6,6 +6,19 @@ Starter app for managing users - login/logout and registration.
 
 ## QuickStart
 
+Use a python virtual environment:
+
+```sh
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
+```
+
+Note: to deactivate (leave the virtual env) type this cmd:
+```sh
+deactivate
+```
+
 ### Set Environment Variables
 
 ```sh
