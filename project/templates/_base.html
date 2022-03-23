@@ -15,11 +15,10 @@
   <body>
 
     {% include "navigation.html" %}
+    <br>
 
     <div class="container">
-
-      <br>
-
+     
       <!-- messages -->
       {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
